@@ -1,0 +1,11 @@
+docker commands
+  #docker images = to list all the images avilable in system .
+  #docker ps -a =to list all container incuilding , runing and stoped.
+  #docker pull ganeshfolane75/app = to pull images from docker hub.
+  #docker --version = to check the docker version .
+  #docker run -itd --name containername -p 1001:80 imagename:latest = to run the image and container formed after this command .
+  #docker stop containername = to stop container .
+  #docker start containername = to start container.
+  #docker rm containername = To remove container permanantly.
+  #docker rmi imagename =To remove image permanantly.
+  
