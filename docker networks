@@ -1,0 +1,144 @@
+Docker networking enables containers to communicate with each other, the host,
+and external networks through isolated environments. 
+It uses the Container Network Model (CNM) to abstract underlying network complexity via pluggable drivers. 
+==============================================================
+
+* Basic commands
+
+# docker network ls = To show list network 
+* create 3 cotainer 
+# docker run =itd --name cont1 ubuntu = To create first container 
+# docker run =itd --name cont2 ubuntu = To create second container 
+# docker run =itd --name cont3 ubuntu = To create thard container 
+# docker inspect cont1 = To show network and ip address cont1 
+  "SandboxKey": "/var/run/docker/netns/26a926df49a4",
+            "Ports": {},
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "d21d1bac8341be4e1e8d552a82b28f760ad94ea3f5c7bdabdb23b5d41baac557",
+                    "EndpointID": "65aa2c4e201451ac1ae2071c0c112700049d36f4c0857dcf729edd57fb5d44e8",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "MacAddress": "32:4e:c7:de:e5:a1",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+======================================================================================================
+
+# docker inspect cont2 = To show network and ip address cont2
+                 
+            "SandboxKey": "/var/run/docker/netns/cdc74a54b0fe",
+            "Ports": {},
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "d21d1bac8341be4e1e8d552a82b28f760ad94ea3f5c7bdabdb23b5d41baac557",
+                    "EndpointID": "9105f155056b491f1950e540db84f31bb3d1b0a57d0f6d58b86add4574a717a5",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.3",
+                    "MacAddress": "56:fd:37:94:58:1b",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+=======================================================================================
+# docker inspect cont3 = To show network and ip address cont3 
+                         "SandboxKey": "/var/run/docker/netns/90c296f03f72",
+            "Ports": {},
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "d21d1bac8341be4e1e8d552a82b28f760ad94ea3f5c7bdabdb23b5d41baac557",
+                    "EndpointID": "adba371cc3f3fbfbec271a48476d975d6320f8b7bcf7ee61cc24be5a7606efc5",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.4",
+                    "MacAddress": "d6:36:bb:3c:66:65",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+===============================================================================================
+# docker exec -it cont1 bash = To login cont1
+
+* In cont1
+# ping 172.17.0.3 = To connect cont1 to cont2, but errro : command not found                     
+# apt update -y = To update ubuntu
+# apt install iputils-ping -y = To install ping packages
+# ping 172.17.0.3 = To connect cont1 to cont2,  successfully
+=====================================================================================
+
+* Create Docker network 
+
+# docker netwrok create frontend = To create frontend netwrok
+# docker netwrok create backend = To create backend netwrok
+# docker netwrok ls = To show docker netwrok list
+# docker run -itd --name front-cont1 --netwrok=frontend ubuntu = To run container using frontend netwrok
+# docker inspect front-cont1 = To show netwrok and ip : front-cont1
+           "SandboxKey": "/var/run/docker/netns/809850d58e84",
+            "Ports": {},
+            "Networks": {
+                "backend": {
+                    "IPAMConfig": {},
+                    "Links": null,
+                    "Aliases": [],
+                    "DriverOpts": {},
+                    "GwPriority": 0,
+                    "NetworkID": "2935d6202622da08ac550d84030f684e3e752e65fdd222ac866d4bff892f9f34",
+                    "EndpointID": "fb96782d6338e7a617a729bf4f16af601d397deec32e25bc07c76037c20a9330",
+                    "Gateway": "172.19.0.1",
+                    "IPAddress": "172.19.0.3",
+                    "MacAddress": "22:60:7e:7f:5b:2a",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "front-cont1",
+                        "0e4fcab816ed"
+
+#                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      
