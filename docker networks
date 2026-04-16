@@ -91,29 +91,67 @@ It uses the Container Network Model (CNM) to abstract underlying network complex
 # docker netwrok ls = To show docker netwrok list
 # docker run -itd --name front-cont1 --netwrok=frontend ubuntu = To run container using frontend netwrok
 # docker inspect front-cont1 = To show netwrok and ip : front-cont1
-           "SandboxKey": "/var/run/docker/netns/809850d58e84",
+            "SandboxKey": "/var/run/docker/netns/6cabb91cbe85",
             "Ports": {},
             "Networks": {
-                "backend": {
-                    "IPAMConfig": {},
+                "frontend": {
+                    "IPAMConfig": null,
                     "Links": null,
-                    "Aliases": [],
-                    "DriverOpts": {},
+                    "Aliases": null,
+                    "DriverOpts": null,
                     "GwPriority": 0,
-                    "NetworkID": "2935d6202622da08ac550d84030f684e3e752e65fdd222ac866d4bff892f9f34",
-                    "EndpointID": "fb96782d6338e7a617a729bf4f16af601d397deec32e25bc07c76037c20a9330",
-                    "Gateway": "172.19.0.1",
-                    "IPAddress": "172.19.0.3",
-                    "MacAddress": "22:60:7e:7f:5b:2a",
+                    "NetworkID": "de35d586c0cb8bac4787d9d4f61511e3c10ecc3bff0f28ccdba74c95ffb0e490",
+                    "EndpointID": "5434c807bf8731bc20eba261e9e1c9ad71ad43323fbacc84e5ab1d0c9ed09f04",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "MacAddress": "fa:e6:05:f7:f5:d7",
                     "IPPrefixLen": 16,
                     "IPv6Gateway": "",
                     "GlobalIPv6Address": "",
                     "GlobalIPv6PrefixLen": 0,
                     "DNSNames": [
                         "front-cont1",
-                        "0e4fcab816ed"
+                        "05dbda034eec"
 
-#                
+===========================================================
+
+# docker run -itd --name back-cont1 --netwrok=backend ubuntu = To run container using backend netwrok
+# docker inspect back-cont1 = To show netwrok and ip : back-cont1
+"SandboxKey": "/var/run/docker/netns/35feaec1d0ae",
+            "Ports": {},
+            "Networks": {
+                "backend": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "62db32f63ab56adf5f4671a4fc323def0b4f52bd0978a656106f470527d6cc1f",
+                    "EndpointID": "204512fb4e7ffba035a88a39ff6b8aba35b0992b404851a5c69c88a2a2f551cb",
+                    "Gateway": "172.19.0.1",
+                    "IPAddress": "172.19.0.2",
+                    "MacAddress": "82:ea:ef:c3:a1:d8",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "back-cont1",
+                        "95292bbb18ec"
+======================================================
+# docker exec -it front-cont1 bash = To login container
+# ping 172.19.0.2 = To ping / connect front-cont1 to back-cont1 :but error
+# apt update = To update 
+# apt install iputils-ping -y = To install package
+# exit = To logout container 
+# docker network connect backend front-cont1 = To connect backend network front-cont1
+# docker network connect frontend back-cont1 = To connect frontend network back-cont1 
+# docker exec -it front-cont1 bash = To loing container  
+# ping 172.19.0.2 = To connect front-cont1 to back-cont1 : success
+=================================================================================
+
+
+               
 
 
 
