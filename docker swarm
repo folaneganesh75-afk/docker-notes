@@ -1,0 +1,9 @@
+Docker swarm is a container orchestration tool.
+  Swarm Mode in Docker was introduced in version 1.12,
+  enabling the ability to deploy multiple containers on multiple Docker hosts.
+  For this Docker uses an overlay network for the service discovery
+  and with a built-in load balancer for scaling the services.
+  ==================================================================
+ * On manager :
+ # docker swarm init --advertise-addr <MANAGER-IP> = TO get token : token copy and pest on worker
+ # 
