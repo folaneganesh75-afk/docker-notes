@@ -1,0 +1,133 @@
+# mkdir two-tire = To create 1 folder
+# cd two-tire = 
+# mkdir node-app = To create folder
+# cd node-app = 
+# vim app.js = To create file and pest
+const express = require('express');
+const app = express();
+const cors = require('cors');
+app.use(cors());
+
+const PORT = 3000;
+
+// Route
+app.get('/', (req, res) => {
+  res.json({ message: "Hello world" });
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
+.................................................................................
+
+# vim dockerfile = To create dockerfile and pest
+# Use official Node.js image
+FROM node:18
+
+# Create app directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm init -y
+RUN npm install
+RUN npm install express
+RUN npm install cors
+
+# Copy app source
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the app
+CMD ["node", "app.js"]
+.........................................
+# cd .. = To back to two-tire folder
+# mkdir html-app = Tocreate folder
+# cd html-app =
+# vim index.html = To create index file and pest
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello App</title>
+</head>
+<body>
+  <h1>Response from Server:</h1>
+  <p id="output">Loading...</p>
+
+  <script>
+    fetch('http://localhost:3000/')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('output').innerText = data.message;
+      })
+      .catch(error => {
+        console.error(error);
+        document.getElementById('output').innerText = 'Error fetching data';
+      });
+  </script>
+</body>
+</html>
+...........................................
+# vim Dockerfile = To create Dockerfile and pest
+# Use official NGINX image
+FROM nginx
+
+# Copy the static files (index.html) into the NGINX container
+COPY . /usr/share/nginx/html
+
+# Expose port 80 (default for NGINX)
+EXPOSE 80
+.....................
+# cd .. = To back to two-tire folder
+=============================================================
+* Foder structure: 
+........................
+[root@localhost to-tire]# tree
+.
+├── html-app
+│   ├── Dockerfile
+│   └── index.html
+└── node-app
+    ├── app.js
+    └── Dockerfile
+===============================================
+# docker build -t node-image node-app = To create image 
+# docker build -t html-image html-app = To create image
+....................
+* To run create image
+# docker run -itd --name node-cont1 -p 3000:3000 node-image:latest = To run image node
+# docker run -itd --name html-cont1 -p 3001:80 html-image:latest = To run image html
+
+= To chack output ip address: 
+
+
+======================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
