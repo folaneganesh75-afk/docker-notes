@@ -6,4 +6,5 @@ Docker swarm is a container orchestration tool.
   ==================================================================
  * On manager :
  # docker swarm init --advertise-addr <MANAGER-IP> = TO get token : token copy and pest on worker
- # 
+ # docker service create --name cont --replicas 5 -p 1002:80 aarushtechnologies/app:latest = To run images 
+ # docker node ls = To show node activity
