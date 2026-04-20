@@ -8,3 +8,32 @@ Docker swarm is a container orchestration tool.
  # docker swarm init --advertise-addr <MANAGER-IP> = TO get token : token copy and pest on worker
  # docker service create --name cont --replicas 5 -p 1002:80 aarushtechnologies/app:latest = To run images 
  # docker node ls = To show node activity 
+===================================================================
+* on worker 
+= pest copy token 
+================================
+* on manager
+# docker service create --name cont --replicas 5 -p 1002:80 aarushtechnologies/app:latest = To run image on manager create service and run . TO check firefox
+=================
+** on worker 
+To check firefox 1002 port on wrokerr ip 
+============================
+# docker service scale medical=5 = To increment replicas
+# docker service scale medical=1 = To decrement replicas
+# docker service ps medical = To show all information medical service 
+# docker node promote worker-id = To promot worker to manager
+# docker node demote worker-id = To demote worker to manager
+=====================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
