@@ -1,0 +1,39 @@
+Docker Compose is a tool for defining and running multi-container Docker applications. 
+  It uses a single YAML file to configure your application's services, networks,
+  and volumes, allowing you to launch an entire stack with a single command.
+====================================================================================================================
+# mkdir compose = To create folder
+# cd compose = 
+# vim compose.yml = To create compose.yml file 
+---
+services:
+  demo:
+    image: aarushtechnologies/medical
+    ports:
+      - "3031:80"
+...............................................
+# docker compose up -d = To run docker compose.yml file
+# docker compose down = to stop / remove service / container
+root@localhost compose]# docker compose down
+[+] down 2/2
+ ✔ Container compose-demo-1 Removed                                         1.6s
+ ✔ Network compose_default  Removed                                         0.3s
+.................................................................................................
+# docker compose down  medical = To stop / remove container only this container
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
