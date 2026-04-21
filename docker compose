@@ -20,7 +20,27 @@ root@localhost compose]# docker compose down
  ✔ Network compose_default  Removed                                         0.3s
 .................................................................................................
 # docker compose down  medical = To stop / remove container only this container
+==========================
+* To run two-tire using compose.yml file (Terminal)
+# mkdir doc-comp = To create folder
+# cd doc-comp = To such folder
+# mkdir frontend = To create frontend folder
+# cd frontend = To such folder
+# vim index.html = To create index.html file
+<h1>
+        this is frontend code
 
+</h1
+..............
+# vim Dockerfile = To create Docker file
+
+FROM nginx:latest
+COPY index.html /usr/share/nginx/html
+..........................
+# cd .. = To back to doc-comp folder
+# mkdir backend = To create backend folder
+# cd backend = To such folder
+# vim index.html = To create index.file
 
 
 
