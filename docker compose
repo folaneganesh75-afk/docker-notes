@@ -41,6 +41,18 @@ COPY index.html /usr/share/nginx/html
 # mkdir backend = To create backend folder
 # cd backend = To such folder
 # vim index.html = To create index.file
+<h1>
+        this is backend code
+
+</h1>
+
+........
+# vim Dockerfile = To create  dockerfile
+FROM nginx:latest
+COPY index.html /usr/share/nginx/html
+.........
+# docker compose up -d = TO run compose file
+0
 
 
 
