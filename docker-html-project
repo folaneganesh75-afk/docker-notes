@@ -1,0 +1,48 @@
+# mkdir docker-html = To create folder
+# cd docker-html = To switch folder
+# vim index.html = To create index.html file
+<h1>    
+       docker index.html file
+
+  </h1>
+  ...................................................
+
+# vim Dockerfile = To create Dockerfile
+  FROM httpd
+  COPY index.html /usr/local/apache2/htdocs/index.html
+......................................................
+
+# docker build -t docker-html .  = To create image 
+# docker images = To check images
+# docker run -itd --name docker-html -p 1001:80 docker-html:latest = To create container / run images
+...........................................
+
+* push docker hub
+
+# docker tag docker-html ganeshfolane75/docker-html = To tag your docker immages docker hub
+# docker push ganeshfolane75/docker-html = To push docker hub
+
+....................................................................................................
+
+* using jenkins / CI server 
+
+=  To available your html project on github 
+
+  = jenkins
+    - + new item
+    -   
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
