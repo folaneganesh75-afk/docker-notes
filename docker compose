@@ -23,9 +23,9 @@ root@localhost compose]# docker compose down
 ==========================
 * To run two-tire using compose.yml file (Terminal)
 # mkdir doc-comp = To create folder
-# cd doc-comp = To such folder
+# cd doc-comp = To switch folder
 # mkdir frontend = To create frontend folder
-# cd frontend = To such folder
+# cd frontend = To switch folder
 # vim index.html = To create index.html file
 <h1>
         this is frontend code
